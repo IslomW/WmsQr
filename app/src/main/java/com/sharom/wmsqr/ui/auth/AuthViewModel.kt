@@ -1,11 +1,13 @@
 package com.sharom.wmsqr.ui.auth
 
 import android.content.Context
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sharom.wmsqr.data.auth.SessionManager
 import com.sharom.wmsqr.data.auth.TokenManager
 import com.sharom.wmsqr.data.auth.api.ApiClient
 import com.sharom.wmsqr.domain.auth.model.LoginRequest
@@ -27,7 +29,9 @@ class AuthViewModel: ViewModel() {
                 val response = ApiClient.authApi.login(
                     LoginRequest(username , password)
                 )
-                TokenManager.saveToken(context, response.token)
+                SessionManager.accessToken = response.accessToken
+                TokenManager.saveToken(context, response.accessToken)
+                Log.w("Token",response.accessToken)
 
                 // Переход на Main
                 onSuccess()
