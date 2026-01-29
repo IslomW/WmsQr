@@ -41,18 +41,10 @@ object ApiClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val authApi: AuthApi = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(AuthApi::class.java)
 
+    val authApi: AuthApi = retrofit.create(AuthApi::class.java)
 
-    val boxApi: BoxApi = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(BoxApi::class.java)
+    val boxApi: BoxApi = retrofit.create(BoxApi::class.java)
+
+    val userApi: UserApi = retrofit.create(UserApi::class.java)
 }
