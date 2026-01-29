@@ -2,7 +2,6 @@ package com.sharom.wmsqr.data.auth.api
 
 import android.util.Log
 import com.sharom.wmsqr.data.auth.SessionManager
-import com.sharom.wmsqr.data.auth.TokenManager
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

@@ -39,8 +39,8 @@ class ScanViewModel(
         }
     }
 
-    fun onScan(code: String): ScanResult {
-        val box = boxes.find { it.code == code }
+    fun onScan(boxId: String): ScanResult {
+        val box = boxes.find { it.boxId == boxId }
             ?: return ScanResult.NOT_FOUND
 
         if (box.scanned) {
@@ -57,7 +57,7 @@ class ScanViewModel(
         viewModelScope.launch {
             val scanned = boxes
                 .filter { it.scanned }
-                .map { it.code }
+                .map { it.boxId }
 
             repo.confirm(shipmentId, scanned)
             onDone()
