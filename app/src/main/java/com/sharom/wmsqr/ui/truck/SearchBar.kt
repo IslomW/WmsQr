@@ -1,0 +1,27 @@
+package com.sharom.wmsqr.ui.truck
+
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+
+@Composable
+fun SearchBar() {
+    OutlinedTextField(
+        value = "",
+        onValueChange = {},
+        modifier = Modifier.fillMaxWidth(),
+        placeholder = { Text("Search SKU or Order ID") },
+        leadingIcon = {
+            Icon(Icons.Outlined.Search, contentDescription = null)
+        },
+        shape = RoundedCornerShape(12.dp),
+        singleLine = true
+    )
+}
